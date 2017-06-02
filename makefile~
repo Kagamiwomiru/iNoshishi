@@ -1,0 +1,24 @@
+LDLIBS=-lncurses
+
+test: Game.o CreateObject.o CheckCollision.o MoveMine.o DrawUI.o LevelUP.o AddScore.o
+	cc Game.o CreateObject.o CheckCollision.o MoveMine.o DrawUI.o LevelUP.o AddScore.o -lncurses -o test
+
+Game.o: Game.c SnakeKit.h
+	cc -c Game.c -o Game.o
+
+CreateObject.o: CreateObject.c SnakeKit.h
+	cc -c CreateObject.c -o CreateObject.o
+
+
+CheckCollision.o: CheckCollision.c SnakeKit.h
+	cc -c CheckCollision.c -o CheckCollision.o
+
+MoveMine.o: MoveMine.c SnakeKit.h
+	cc -c MoveMine.c -o MoveMine.o
+
+DrawUI.o: DrawUI.c SnakeKit.h
+	cc -c DrawUI.c -o DrawUI.o
+LevelUP.o: LevelUP.c SnakeKit.h
+	cc -c LevelUP.c -o LevelUP.o
+AddScore.o: AddScore.c SnakeKit.h
+	cc -c AddScore.c -o AddScore.o

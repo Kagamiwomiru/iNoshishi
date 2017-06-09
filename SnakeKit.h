@@ -27,5 +27,7 @@ void DrawUI(ICHI Feed,ICHI *Block,ICHI Mine,ICHI *tkabe,ICHI *ykabe,int *point);
 void AddScore(int *point);
 void GameOver(int *point);
 void Help();
+int UpdateRank(int *point);
+int CheckRank(int *point);
 #endif
 

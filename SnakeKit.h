@@ -17,17 +17,20 @@ typedef struct ichi{
 #include<ncurses.h>
 #include<unistd.h>
 #include<string.h>
+#include<stdlib.h>
 #include <locale.h>/*マルチバイト文字に必要*/
-#include<time.h> 
+#include<time.h>
 void CreateObject(ICHI *Feed,ICHI Block[],int *flag);
 char CheckCollision(ICHI *Feed,ICHI Block[],ICHI *Mine,ICHI tkabe[],ICHI ykabe[]);
 void MoveMine(ICHI *Mine,int *Sokudo,int *syoki);
 void LevelUP(int *Sokudo);
-void DrawUI(ICHI Feed,ICHI *Block,ICHI Mine,ICHI *tkabe,ICHI *ykabe,int *point); 
+void DrawUI(ICHI Feed,ICHI *Block,ICHI Mine,ICHI *tkabe,ICHI *ykabe,int *point);
 void AddScore(int *point);
 void GameOver(int *point);
 void Help();
+/*
 int UpdateRank(int *point);
-int CheckRank(int *point);
-#endif
+*/
+int CheckRank(int point);
 
+#endif

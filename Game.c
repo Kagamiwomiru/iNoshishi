@@ -28,7 +28,7 @@ void Game(int *debug_flag) {
     if (check == '2') {
       clear();
 
-      GameOver(&point);
+      GameOver(&point,debug_flag);
       break; //ぶつかったらプログラム終了
     }
   }

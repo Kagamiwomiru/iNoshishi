@@ -26,11 +26,11 @@ void MoveMine(ICHI *Mine,int *Sokudo,int *syoki);
 void LevelUP(int *Sokudo);
 void DrawUI(ICHI Feed,ICHI *Block,ICHI Mine,ICHI *tkabe,ICHI *ykabe,int *point);
 void AddScore(int *point);
-void GameOver(int *point);
+void GameOver(int *point,int *debug_flag);
 void Help();
 /*
 int UpdateRank(int *point);
 */
-int CheckRank(int point);
+int CheckRank(int point,int *debug_flag);
 void debug_PointShop(int *point,int *Sokudo);
 #endif

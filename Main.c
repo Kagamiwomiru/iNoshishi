@@ -1,7 +1,7 @@
 #include"SnakeKit.h"
 
 int main(){
-	int mc,s;
+	int mc,s,debug_flag=1;
 	setlocale(LC_ALL,"");
 	initscr();
 	curs_set(0);
@@ -12,7 +12,7 @@ int main(){
 			mc=MainMenu();
 			clear();
 			if(mc==48){
-				Game();
+				Game(&debug_flag);
 				clear();
 			}else if(mc==49){
 				Help();

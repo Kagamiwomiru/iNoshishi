@@ -32,5 +32,5 @@ void Help();
 int UpdateRank(int *point);
 */
 int CheckRank(int point);
-
+void debug_PointShop(int *point,int *Sokudo);
 #endif

@@ -1,6 +1,6 @@
 #include "SnakeKit.h"
 // GameMain
-void Game() {
+void Game(int *debug_flag) {
   ICHI Feed, Block[BLOCK], Mine;
   ICHI ykabe[5000];   //"-"の座標
   ICHI tkabe[5000];   //"|"の座標
@@ -10,8 +10,11 @@ void Game() {
   char check = '0';
   static int syoki;
   setlocale(LC_ALL, "");
-  initscr();
   syoki = 0;
+
+	if(debug_flag) debug_PointShop(&point ,&Sokudo);//ポイントショップを起動
+	clear();
+  initscr();
   CreateObject(&Feed, Block, &flag);
   while (true) {
     MoveMine(&Mine, &Sokudo, &syoki);

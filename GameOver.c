@@ -4,6 +4,7 @@ void GameOver(int *point,int *debug_flag) {
   char p[10];
   int ch;
   int tmp_p;
+	char name[];
   tmp_p = *point;
   setlocale(LC_ALL, "");
   initscr();
@@ -16,7 +17,20 @@ void GameOver(int *point,int *debug_flag) {
   } else {
     mvprintw(11, 1, "DEBUG:!ERROR!\n");
   }
+if(CheckRank(tmp_p,debug_flag)){//ランクインしたとき
+	
+  mvaddstr(y / 2 - 10, x / 2, "RankIN!!");
+	
+  sprintf(p, "%d", *point);
+  mvaddstr(y / 2 - 8, x / 2, "名前を入力してください(5文字)");
+	refresh();
+	scanw("%s",name);
+	if(!UpdateRank(name,point)) mvaddstr(y / 2 - 5, x / 2, "ランキングを保存できませんでした。");
+;//ランキングをアップデート
 
+	return;
+
+}else{//ランクインしなかったとき
   mvaddstr(y / 2 - 10, x / 2, "GameOver!!");
   sprintf(p, "%d", *point);
   mvaddstr(y / 2 - 8, x / 2, p);
@@ -28,7 +42,7 @@ void GameOver(int *point,int *debug_flag) {
   noecho();
   while (ch != 'q')
     ch = getch();
-
+}
   return;
 }
 
@@ -86,7 +100,7 @@ if(*debug_flag==1){//debug
  if(cnt<10) return 1;//ランキングが10項目以下のときは無条件でランクイン 
 
 //ランキングと現在ポイント比較
-i = 0;
+i = 0;)
 while (i < cnt) {
 	if (point > Rank_point[i]) 	return 1; //ランクインが確認出来次第１を返す
 	
@@ -95,4 +109,25 @@ while (i < cnt) {
   fclose(fp);
 
   return 0;
+}
+
+
+int UpdateRank(char *name , int *point){
+	FILE *fp;
+  char *fname = "Ranking.txt";
+  char msg[] = "ランキングファイル(Ranking.txt)が見つかりませんでした。\n";
+	
+	fp = fopen(fname, "a");//ファイルの末尾に追記
+	if (fp == NULL) {
+    mvaddstr(y / 2, x / 2, msg);
+    refresh();
+    return 0;
+  }
+
+	
+	fgets(*name)
+  
+
+
+
 }

@@ -12,7 +12,7 @@ void Game(int *debug_flag) {
   setlocale(LC_ALL, "");
   syoki = 0;
 
-	if(debug_flag) debug_PointShop(&point ,&Sokudo);//ポイントショップを起動
+	if(*debug_flag==1) debug_PointShop(&point ,&Sokudo);//ポイントショップを起動
 	clear();
   initscr();
   CreateObject(&Feed, Block, &flag);

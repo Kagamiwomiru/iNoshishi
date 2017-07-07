@@ -1,7 +1,7 @@
 LDLIBS=-lncursesw
 
-iNoshishi: Main.o initSnake.o MainMenu.o Help.o Game.o CreateObject.o CheckCollision.o MoveMine.o DrawUI.o LevelUP.o AddScore.o GameOver.o debug.o
-	cc Main.o initSnake.o MainMenu.o Help.o Game.o CreateObject.o CheckCollision.o MoveMine.o DrawUI.o LevelUP.o AddScore.o GameOver.o debug.o -lncursesw -o iNoshishi
+iNoshishi: Main.o initSnake.o MainMenu.o Help.o showRank.o Game.o CreateObject.o CheckCollision.o MoveMine.o DrawUI.o LevelUP.o AddScore.o GameOver.o debug.o
+	cc Main.o initSnake.o MainMenu.o Help.o showRank.o Game.o CreateObject.o CheckCollision.o MoveMine.o DrawUI.o LevelUP.o AddScore.o GameOver.o debug.o -lncursesw -o iNoshishi
 
 Main.o: Main.c SnakeKit.h
 	cc -c Main.c -o Main.o
@@ -14,6 +14,10 @@ MainMenu.o: MainMenu.c SnakeKit.h
 
 Help.o: Help.c SnakeKit.h
 	cc -c Help.c -o Help.o
+
+showRank.o: showRank.c SnakeKit.h
+	cc -c showRank.c -o showRank.o
+
 
 Game.o: Game.c SnakeKit.h
 	cc -c Game.c -o Game.o

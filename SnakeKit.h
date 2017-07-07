@@ -13,6 +13,11 @@ typedef struct ichi{
 	int le;
 }ICHI;
 
+typedef struct rank{
+	int point;
+	char name[5];
+}RANK;
+
 #include<stdio.h>
 #include<ncurses.h>
 #include<unistd.h>
@@ -28,7 +33,11 @@ void DrawUI(ICHI Feed,ICHI *Block,ICHI Mine,ICHI *tkabe,ICHI *ykabe,int *point);
 void AddScore(int *point);
 void GameOver(int *point,int *debug_flag);
 void Help();
-int UpdateRank(int *point);
+int UpdateRank(char *name,int *point,int *debug_flag);
 int CheckRank(int point,int *debug_flag);
+void showRank();
+int cmp( const void *p, const void *q );
 void debug_PointShop(int *point,int *Sokudo);
+void debug_showArray(RANK *retu);
+
 #endif

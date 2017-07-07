@@ -19,3 +19,15 @@ void debug_PointShop(int *point, int *Sokudo) {
 	while(cnt-->0)*Sokudo-=5000;
   return;
 }
+
+
+void debug_showArray(RANK *retu){
+
+	int i;
+	clear();
+	for(i=0;i<12;i++)mvprintw(12+i,1,"%d,%s\n",retu[i].point,retu[i].name);
+	refresh();
+	sleep(2);
+return ;
+	
+}

@@ -77,7 +77,7 @@ void  DrawUI(ICHI Feed,ICHI *Block,ICHI Mine,ICHI *tkabe,ICHI *ykabe,int *point)
 	curs_set(0);
   init_pair(1,COLOR_BLUE,COLOR_BLACK);
   init_pair(2,COLOR_RED,COLOR_BLACK);
-  init_pair(3,COLOR_WHITE,COLOR_BLACK);
+  init_pair(3,COLOR_WHITE,COLOR_BLACK);	
 	DrawSikaku(tkabe,ykabe);
   DrawFeed(Feed);
   DrawBlock(Block,50);

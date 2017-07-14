@@ -12,7 +12,7 @@ struct menu{
 
 
 int MainMenu(){
-static struct menu msg={"iNoshishi","0:START","1:いんちきモード","2:Help","3:Ranking","4:EXIT"};
+static struct menu msg={"iNoshishi","0:START","1:いんちき","2:Help","3:Ranking","4:EXIT"};
 int x,y;
 int ch=0;
 

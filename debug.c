@@ -2,8 +2,8 @@
 // デバッグ用関数
 void debug_PointShop(int *point, int *Sokudo) {
   int x,y,level=0,cnt=0,input=0;
-	char title[]="====PointShop====";
-  char msg[] = "設定するポイントを入力...";
+	char title[]="====いんちきスコア====";
+  char msg[] = "でっちあげるポイントを入力...";
   initscr();
 	nocbreak();
 	echo();

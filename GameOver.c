@@ -4,8 +4,9 @@ void GameOver(int *point,int *debug_flag) {
   char p[10];
   int ch=0;
   int tmp_p,check;
-	char name[666666];
-  tmp_p = *point;
+	char name[5];
+  int i;
+	tmp_p = *point;
   setlocale(LC_ALL, "");
   initscr();
   getmaxyx(stdscr, y, x);
@@ -13,14 +14,31 @@ check=CheckRank(tmp_p,debug_flag);
   
 if(check==1){//ランクインしたとき
  
-  mvaddstr(y / 2 - 10, x / 2, "ランクイン！");
+  mvaddstr(y / 2 - 10, x / 2-5, "ランクイン！");
 	
   sprintf(p, "%d", *point);
-  mvaddstr(y / 2 - 8, x / 2, "名前を入力してください(5文字)\n");
+  mvaddstr(y / 2 - 8, x / 2-10, "名前を入力してください(5文字)\n");
+
+for(i=0;i<9;i++){
+	mvaddch(y/2-7,x/2-6+i,'-');
+	mvaddch(y/2-5,x/2-6+i,'-');
+}
+	mvaddch(y/2-6,x/2-6,'|');
+	mvaddch(y/2-6,x/2+2,'|');
+	move(y/2-6,x/2-5);
+
 	nocbreak();
 	echo();
 	refresh();
 	scanw("%s",name);
+	while(strlen(name)>5){					
+  mvprintw(y / 2 - 4, x / 2-10, "%s", "文字数超過：5文字以内で入力してください");
+	mvprintw(y/2-6,x/2-5,"%s","       |                   ");
+	refresh();
+	move(y/2-6,x/2-5);				
+	scanw("%s",name);
+	}//文字数超過処理
+
 	if(!UpdateRank(name,point,debug_flag)) mvaddstr(y / 2 - 5, x / 2, "保存に失敗しました。");
 //ランキングをアップデート
 
@@ -57,7 +75,11 @@ int CheckRank(int point,int *debug_flag) {
   getmaxyx(stdscr, y, x);
   mvprintw(12, 1, "%d\n", point);
 	}
-  fp = fopen(fname, "r");
+
+	//ランキングをダウンロード	
+system("scp Earth:kadai/se17/iNoshishiServer/Ranking.txt .");	
+
+	fp = fopen(fname, "r");
  
 	
 	if (fp == NULL) {
@@ -135,18 +157,18 @@ int UpdateRank(char *name , int *point,int *debug_flag){
 		strcpy(retu[i].name,tmpc);
 		i++;
 	}
-if(debug_flag) debug_showArray(retu);
+if(*debug_flag) debug_showArray(retu);
 fclose(fp);	
 	n=sizeof retu/sizeof(RANK);
 	qsort(retu,n,sizeof(RANK),cmp);
 
-if(debug_flag) debug_showArray(retu);
+if(*debug_flag) debug_showArray(retu);
 	fp=fopen(fname,"w");
 	for(i=0;i<10;i++)	fprintf(fp,"%d,%s",retu[i].point,retu[i].name);//ファイルに書き込み
 	fclose(fp);
 
-
-
+//ランキングをアップロード
+system("scp Ranking.txt Earth:kadai/se17/iNoshishiServer/");
 return 0;
 
 
